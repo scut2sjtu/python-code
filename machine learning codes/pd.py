@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-def dist(a,b):
+def dist(a,b):   # 距离函数
     dist = np.sqrt(np.sum(np.square(a-b)))
     return dist
 a = np.array([2,3,5,6])
@@ -12,4 +12,7 @@ def sort(a):  #  一维数组排序函数
     n = len(a)
     sort = np.array([])
     for i in range(n):
-        sort[i] = a[i]		
+        sort[i] = a[i]
+
+
+		
