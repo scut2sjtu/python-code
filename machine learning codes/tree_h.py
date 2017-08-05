@@ -121,31 +121,33 @@ def test_DecisionTreeClassifier_criterion(*data):
         print "Training score %f" % (clf.score(X_train, y_train))
         print "Testing score  %f" % (clf.score(X_test, y_test))
 
+
 data = load_data()
 test_DecisionTreeClassifier_criterion(*data)
 
 
 # 探索不同深度的树对预测结果的影响
-def test_DecisionTreeClassifier_depth(maxdepth,*data):
-    X_train,X_test,y_train,y_test=data
-    depths=np.arange(1,maxdepth)
-    training_scores=[]
-    testing_scores=[]
+def test_DecisionTreeClassifier_depth(maxdepth, *data):
+    X_train, X_test, y_train, y_test = data
+    depths = np.arange(1, maxdepth)
+    training_scores = []
+    testing_scores = []
     for depth in depths:
         clf = DecisionTreeClassifier(max_depth=depth)
-        clf.fit(X_train,y_train)
-        training_scores.append(clf.score(X_train,y_train))
-        testing_scores.append(clf.score(X_test,y_test))
+        clf.fit(X_train, y_train)
+        training_scores.append(clf.score(X_train, y_train))
+        testing_scores.append(clf.score(X_test, y_test))
     # plot
     fig = plt.figure()
-    ax= fig.add_subplot(1,1,1)
-    ax.plot(depths,training_scores,label='training score',marker='o')
-    ax.plot(depths,testing_scores,label='testing score',marker='*')
+    ax = fig.add_subplot(1, 1, 1)
+    ax.plot(depths, training_scores, label='training score', marker='o')
+    ax.plot(depths, testing_scores, label='testing score', marker='*')
     ax.set_xlabel("depth")
     ax.set_ylabel("score")
     ax.set_title("Decision Tree Classification")
-    ax.legend(loc="best",framealpha=0.5)
+    ax.legend(loc="best", framealpha=0.5)
     plt.show()
-data=load_data()
-test_DecisionTreeClassifier_depth(8,*data)
 
+
+data = load_data()
+test_DecisionTreeClassifier_depth(8, *data)
