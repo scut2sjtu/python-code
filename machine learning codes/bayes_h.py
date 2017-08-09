@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+"""贝叶斯分类器"""
 from sklearn import datasets, cross_validation, naive_bayes
 import numpy as np
 import matplotlib.pyplot as plt
